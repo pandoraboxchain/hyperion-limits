@@ -6,11 +6,15 @@ data = "baf011876aec65950556a5b3048b4d0e0e57008508270629f0d0e91aac916187561c9e94
 
 n = 2
 m = 3
+
+wr = open("resutl.csv", 'w')
+
 while m<8000:
     start = timeit.default_timer()
     secret = SecretSharer.split_secret(data, n, m)
     stop = timeit.default_timer()
     print(str(n) + " of " + str(m))
     print(str(stop - start) + " seconds")
+    wr.write(str(n) + ";" + str(m) + ";" + str(stop - start) + '\n')
     n+=1
     m+=2
